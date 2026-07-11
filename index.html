@@ -17,259 +17,275 @@
 }
 
 body{
-    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
-    color:white;
-    overflow-x:hidden;
-}
-
-/* Background Animation */
-
-body::before{
-    content:"";
-    position:fixed;
-    width:600px;
-    height:600px;
-    background:#3b82f655;
-    border-radius:50%;
-    top:-250px;
-    left:-180px;
-    filter:blur(120px);
-}
-
-body::after{
-    content:"";
-    position:fixed;
-    width:500px;
-    height:500px;
-    background:#9333ea55;
-    border-radius:50%;
-    bottom:-200px;
-    right:-150px;
-    filter:blur(120px);
+    background:#F8F4ED;
+    color:#4A3B32;
+    padding:40px 20px;
 }
 
 .container{
-    width:90%;
-    max-width:1100px;
-    margin:40px auto;
-    backdrop-filter:blur(18px);
-    background:rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.15);
-    border-radius:25px;
-    padding:40px;
-    box-shadow:0 0 40px rgba(0,0,0,.4);
+    max-width:950px;
+    margin:auto;
+    background:#FFFCF8;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 12px 35px rgba(92,64,51,.12);
 }
 
-.hero{
+/* Header */
+
+.header{
+    background:linear-gradient(135deg,#5C4033,#7B5E57);
+    color:white;
+    padding:45px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
     flex-wrap:wrap;
-    gap:40px;
+    gap:30px;
 }
 
-.hero-text{
-    flex:1;
+.header-text h1{
+    font-size:42px;
+    margin-bottom:8px;
 }
 
-.hero-text h1{
-    font-size:55px;
-    margin-bottom:10px;
-    background:linear-gradient(90deg,#60a5fa,#c084fc);
-    -webkit-background-clip:text;
-    color:transparent;
+.header-text h3{
+    font-weight:400;
+    color:#F4E9DB;
+    margin-bottom:15px;
 }
 
-.hero-text h3{
-    color:#cbd5e1;
-    margin-bottom:20px;
-}
-
-.hero-text p{
+.header-text p{
+    max-width:500px;
     line-height:1.8;
-    color:#d1d5db;
+    color:#F8F4ED;
 }
 
-.hero img{
-    width:250px;
-    height:250px;
-    border-radius:20px;
+.header img{
+    width:170px;
+    height:170px;
     object-fit:cover;
-    border:4px solid #60a5fa;
-    box-shadow:0 0 30px #3b82f6;
+    border-radius:50%;
+    border:6px solid #E8DCCB;
 }
+
+/* Sections */
 
 section{
-    margin-top:45px;
+    padding:35px;
 }
 
-.title{
-    font-size:28px;
-    margin-bottom:25px;
-    color:#60a5fa;
+section:not(:last-child){
+    border-bottom:1px solid #E8DCCB;
 }
 
-.cards{
+.section-title{
+    font-size:24px;
+    color:#5C4033;
+    margin-bottom:20px;
+    position:relative;
+}
+
+.section-title::after{
+    content:"";
+    width:70px;
+    height:3px;
+    background:#B08D74;
+    position:absolute;
+    left:0;
+    bottom:-8px;
+}
+
+/* About */
+
+.about{
+    line-height:1.9;
+    color:#6C584C;
+}
+
+/* Cards */
+
+.grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+    gap:18px;
 }
 
 .card{
-    background:rgba(255,255,255,0.07);
-    padding:25px;
-    border-radius:18px;
-    transition:.4s;
-    border:1px solid rgba(255,255,255,.08);
+    background:#F8F4ED;
+    border:1px solid #E6D8C9;
+    border-radius:12px;
+    padding:20px;
+    transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    background:#3b82f620;
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(92,64,51,.10);
 }
 
-.card h3{
-    margin-bottom:12px;
+.card h4{
+    color:#5C4033;
+    margin-bottom:10px;
 }
 
 .card p{
-    color:#ddd;
+    color:#6C584C;
+    line-height:1.6;
 }
+
+/* Table */
 
 table{
     width:100%;
     border-collapse:collapse;
     overflow:hidden;
-    border-radius:15px;
+    border-radius:12px;
 }
 
 th{
-    background:#2563eb;
-    padding:15px;
+    background:#5C4033;
+    color:white;
+    padding:14px;
 }
 
 td{
-    padding:15px;
+    padding:14px;
     text-align:center;
-    background:rgba(255,255,255,.05);
+    border-bottom:1px solid #E8DCCB;
 }
 
-tr:hover td{
-    background:#3b82f633;
+tr:nth-child(even){
+    background:#F8F4ED;
 }
+
+/* Contact */
 
 .contact{
-    display:flex;
-    gap:20px;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:18px;
 }
 
-.info{
-    flex:1;
-    min-width:250px;
-    padding:25px;
-    background:rgba(255,255,255,.07);
-    border-radius:18px;
+.info-box{
+    background:#F8F4ED;
+    border-left:5px solid #7B5E57;
+    padding:20px;
+    border-radius:10px;
 }
+
+/* Button */
 
 .button{
     display:inline-block;
     margin-top:20px;
-    padding:14px 35px;
-    border-radius:50px;
-    text-decoration:none;
+    padding:13px 30px;
+    background:#5C4033;
     color:white;
-    font-weight:600;
-    background:linear-gradient(90deg,#2563eb,#9333ea);
+    text-decoration:none;
+    border-radius:8px;
     transition:.3s;
 }
 
 .button:hover{
-    transform:scale(1.05);
+    background:#7B5E57;
 }
 
+/* Footer */
+
 footer{
-    margin-top:50px;
     text-align:center;
-    color:#94a3b8;
-    border-top:1px solid rgba(255,255,255,.1);
-    padding-top:20px;
+    padding:25px;
+    background:#F5EEE5;
+    color:#6C584C;
 }
 
 @media(max-width:768px){
 
-.hero{
-flex-direction:column-reverse;
-text-align:center;
+.header{
+    flex-direction:column-reverse;
+    text-align:center;
 }
 
-.hero img{
-width:200px;
-height:200px;
+.header-text p{
+    max-width:100%;
 }
 
-.hero-text h1{
-font-size:40px;
+.header h1{
+    font-size:34px;
+}
+
+section{
+    padding:25px;
 }
 
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
 
-<div class="hero">
+<div class="header">
 
-<div class="hero-text">
-
+<div class="header-text">
 <h1>Pravin R</h1>
-
 <h3>Information Technology Student</h3>
 
 <p>
-Passionate about Web Development, Artificial Intelligence, Software Engineering and
-creating innovative digital experiences. I enjoy solving real-world problems and
-building modern web applications using the latest technologies.
+Passionate about web development, artificial intelligence, and software engineering.
+I enjoy building modern applications, solving real-world problems, and continuously
+improving my technical skills.
 </p>
 
 <a href="https://pravin-portfolio-nexus.lovable.app/" target="_blank" class="button">
-Visit Portfolio
+View Portfolio
 </a>
 
 </div>
 
-<img src="photo.png" alt="Profile">
+<img src="photo.png" alt="Profile Photo">
 
 </div>
 
 <section>
 
-<h2 class="title">🚀 My Hobbies</h2>
+<h2 class="section-title">About Me</h2>
 
-<div class="cards">
+<p class="about">
+I am an Information Technology student with a strong interest in software development,
+AI, and modern web technologies. My goal is to build impactful digital solutions while
+continuously expanding my knowledge through practical projects.
+</p>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Hobbies</h2>
+
+<div class="grid">
 
 <div class="card">
-<h3>🏏 Cricket</h3>
-<p>Playing cricket during free time.</p>
+<h4>🏏 Cricket</h4>
+<p>Playing and following cricket.</p>
 </div>
 
 <div class="card">
-<h3>💻 Coding</h3>
-<p>Building websites and software projects.</p>
+<h4>💻 Programming</h4>
+<p>Building websites and applications.</p>
 </div>
 
 <div class="card">
-<h3>🎵 Music</h3>
-<p>Listening to relaxing and energetic songs.</p>
+<h4>🎵 Music</h4>
+<p>Listening to relaxing music.</p>
 </div>
 
 <div class="card">
-<h3>📚 Learning</h3>
-<p>Exploring new technologies every day.</p>
+<h4>📚 Learning</h4>
+<p>Exploring new technologies.</p>
 </div>
 
 </div>
@@ -278,33 +294,7 @@ Visit Portfolio
 
 <section>
 
-<h2 class="title">🎯 Academic Goals</h2>
-
-<div class="cards">
-
-<div class="card">
-<h3>🎓 Graduate with Excellence</h3>
-</div>
-
-<div class="card">
-<h3>🌐 Become Full Stack Developer</h3>
-</div>
-
-<div class="card">
-<h3>🤖 Master AI & ML</h3>
-</div>
-
-<div class="card">
-<h3>🏢 Join Top Software Company</h3>
-</div>
-
-</div>
-
-</section>
-
-<section>
-
-<h2 class="title">📊 Subject Marks</h2>
+<h2 class="section-title">Subject Marks</h2>
 
 <table>
 
@@ -319,12 +309,12 @@ Visit Portfolio
 </tr>
 
 <tr>
-<td>Python</td>
+<td>Python Programming</td>
 <td>92</td>
 </tr>
 
 <tr>
-<td>DBMS</td>
+<td>Database Management</td>
 <td>90</td>
 </tr>
 
@@ -339,17 +329,17 @@ Visit Portfolio
 
 <section>
 
-<h2 class="title">📞 Contact</h2>
+<h2 class="section-title">Contact</h2>
 
 <div class="contact">
 
-<div class="info">
-<h3>Email</h3>
+<div class="info-box">
+<h4>Email</h4>
 <p>pravin17xy@gmail.com</p>
 </div>
 
-<div class="info">
-<h3>Phone</h3>
+<div class="info-box">
+<h4>Phone</h4>
 <p>+91 9344438685</p>
 </div>
 
@@ -359,7 +349,7 @@ Visit Portfolio
 
 <footer>
 
-<h3>Thank You For Visiting My Profile ❤️</h3>
+<p>© 2026 Pravin R • Student Profile</p>
 
 </footer>
 
