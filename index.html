@@ -5,124 +5,215 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Profile</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-    background:linear-gradient(135deg,#6a11cb,#2575fc);
-    padding:40px;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Background Animation */
+
+body::before{
+    content:"";
+    position:fixed;
+    width:600px;
+    height:600px;
+    background:#3b82f655;
+    border-radius:50%;
+    top:-250px;
+    left:-180px;
+    filter:blur(120px);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:500px;
+    height:500px;
+    background:#9333ea55;
+    border-radius:50%;
+    bottom:-200px;
+    right:-150px;
+    filter:blur(120px);
 }
 
 .container{
-    max-width:900px;
-    margin:auto;
-    background:white;
-    border-radius:20px;
+    width:90%;
+    max-width:1100px;
+    margin:40px auto;
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.15);
+    border-radius:25px;
     padding:40px;
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    box-shadow:0 0 40px rgba(0,0,0,.4);
 }
 
-.header{
-    text-align:center;
-    margin-bottom:30px;
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:40px;
 }
 
-.header img{
-    width:180px;
-    height:180px;
-    border-radius:50%;
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
+    font-size:55px;
+    margin-bottom:10px;
+    background:linear-gradient(90deg,#60a5fa,#c084fc);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero-text h3{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    line-height:1.8;
+    color:#d1d5db;
+}
+
+.hero img{
+    width:250px;
+    height:250px;
+    border-radius:20px;
     object-fit:cover;
-    border:6px solid #2575fc;
-    margin-bottom:15px;
-}
-
-.header h1{
-    color:#2575fc;
-    font-size:40px;
-}
-
-.header p{
-    color:#666;
+    border:4px solid #60a5fa;
+    box-shadow:0 0 30px #3b82f6;
 }
 
 section{
-    margin-top:30px;
+    margin-top:45px;
 }
 
-h2{
-    color:#6a11cb;
-    border-left:6px solid #2575fc;
-    padding-left:10px;
-    margin-bottom:15px;
+.title{
+    font-size:28px;
+    margin-bottom:25px;
+    color:#60a5fa;
 }
 
-p{
-    line-height:1.8;
-    color:#444;
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-ul,ol{
-    margin-left:25px;
-    line-height:2;
+.card{
+    background:rgba(255,255,255,0.07);
+    padding:25px;
+    border-radius:18px;
+    transition:.4s;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    background:#3b82f620;
+}
+
+.card h3{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#ddd;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
-    margin-top:10px;
+    overflow:hidden;
+    border-radius:15px;
 }
 
-table th{
-    background:#2575fc;
-    color:white;
-    padding:12px;
+th{
+    background:#2563eb;
+    padding:15px;
 }
 
-table td{
-    padding:12px;
+td{
+    padding:15px;
     text-align:center;
+    background:rgba(255,255,255,.05);
 }
 
-table tr:nth-child(even){
-    background:#f2f7ff;
+tr:hover td{
+    background:#3b82f633;
 }
 
-table tr:hover{
-    background:#dbe8ff;
+.contact{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.info{
+    flex:1;
+    min-width:250px;
+    padding:25px;
+    background:rgba(255,255,255,.07);
+    border-radius:18px;
 }
 
 .button{
     display:inline-block;
-    margin-top:15px;
-    padding:12px 25px;
-    background:#2575fc;
-    color:white;
+    margin-top:20px;
+    padding:14px 35px;
+    border-radius:50px;
     text-decoration:none;
-    border-radius:30px;
+    color:white;
+    font-weight:600;
+    background:linear-gradient(90deg,#2563eb,#9333ea);
     transition:.3s;
 }
 
 .button:hover{
-    background:#6a11cb;
     transform:scale(1.05);
 }
 
-.contact{
-    background:#eef4ff;
-    padding:20px;
-    border-radius:12px;
+footer{
+    margin-top:50px;
+    text-align:center;
+    color:#94a3b8;
+    border-top:1px solid rgba(255,255,255,.1);
+    padding-top:20px;
 }
 
-footer{
-    margin-top:40px;
-    text-align:center;
-    color:#777;
+@media(max-width:768px){
+
+.hero{
+flex-direction:column-reverse;
+text-align:center;
 }
+
+.hero img{
+width:200px;
+height:200px;
+}
+
+.hero-text h1{
+font-size:40px;
+}
+
+}
+
 </style>
 
 </head>
@@ -131,59 +222,91 @@ footer{
 
 <div class="container">
 
-<div class="header">
+<div class="hero">
 
-<img src="photo.png" alt="Student Photo">
+<div class="hero-text">
 
 <h1>Pravin R</h1>
 
-<p>Information Technology Student</p>
+<h3>Information Technology Student</h3>
+
+<p>
+Passionate about Web Development, Artificial Intelligence, Software Engineering and
+creating innovative digital experiences. I enjoy solving real-world problems and
+building modern web applications using the latest technologies.
+</p>
+
+<a href="https://pravin-portfolio-nexus.lovable.app/" target="_blank" class="button">
+Visit Portfolio
+</a>
+
+</div>
+
+<img src="photo.png" alt="Profile">
 
 </div>
 
 <section>
 
-<h2>About Me</h2>
+<h2 class="title">🚀 My Hobbies</h2>
 
-<p>
-Hello! I am Pravin R, an Information Technology student passionate about Web Development,
-Artificial Intelligence, and Software Engineering. I enjoy building innovative projects
-and continuously learning modern technologies.
-</p>
+<div class="cards">
 
-</section>
+<div class="card">
+<h3>🏏 Cricket</h3>
+<p>Playing cricket during free time.</p>
+</div>
 
-<section>
+<div class="card">
+<h3>💻 Coding</h3>
+<p>Building websites and software projects.</p>
+</div>
 
-<h2>My Hobbies</h2>
+<div class="card">
+<h3>🎵 Music</h3>
+<p>Listening to relaxing and energetic songs.</p>
+</div>
 
-<ul>
-<li>🏏 Playing Cricket</li>
-<li>🎵 Listening to Music</li>
-<li>💻 Programming</li>
-<li>📚 Reading Technology Blogs</li>
-</ul>
+<div class="card">
+<h3>📚 Learning</h3>
+<p>Exploring new technologies every day.</p>
+</div>
 
-</section>
-
-<section>
-
-<h2>Academic Goals</h2>
-
-<ol>
-<li>Complete my degree with excellent grades.</li>
-<li>Become a Full Stack Developer.</li>
-<li>Master Artificial Intelligence & Machine Learning.</li>
-<li>Work as a Software Engineer in a top company.</li>
-</ol>
+</div>
 
 </section>
 
 <section>
 
-<h2>Subject Marks</h2>
+<h2 class="title">🎯 Academic Goals</h2>
 
-<table border="1">
+<div class="cards">
+
+<div class="card">
+<h3>🎓 Graduate with Excellence</h3>
+</div>
+
+<div class="card">
+<h3>🌐 Become Full Stack Developer</h3>
+</div>
+
+<div class="card">
+<h3>🤖 Master AI & ML</h3>
+</div>
+
+<div class="card">
+<h3>🏢 Join Top Software Company</h3>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="title">📊 Subject Marks</h2>
+
+<table>
 
 <tr>
 <th>Subject</th>
@@ -196,12 +319,12 @@ and continuously learning modern technologies.
 </tr>
 
 <tr>
-<td>Python Programming</td>
+<td>Python</td>
 <td>92</td>
 </tr>
 
 <tr>
-<td>Database Management</td>
+<td>DBMS</td>
 <td>90</td>
 </tr>
 
@@ -216,23 +339,19 @@ and continuously learning modern technologies.
 
 <section>
 
-<h2>My Portfolio</h2>
-
-<a class="button" href="https://pravin-portfolio-nexus.lovable.app/" target="_blank">
-Visit My Portfolio
-</a>
-
-</section>
-
-<section>
-
-<h2>Contact Details</h2>
+<h2 class="title">📞 Contact</h2>
 
 <div class="contact">
 
-<p><strong>📧 Email:</strong> pravin17xy@gmail.com</p>
+<div class="info">
+<h3>Email</h3>
+<p>pravin17xy@gmail.com</p>
+</div>
 
-<p><strong>📱 Phone:</strong> +91 9344438685</p>
+<div class="info">
+<h3>Phone</h3>
+<p>+91 9344438685</p>
+</div>
 
 </div>
 
@@ -240,7 +359,7 @@ Visit My Portfolio
 
 <footer>
 
-<h3>Thank You for Visiting My Profile ❤️</h3>
+<h3>Thank You For Visiting My Profile ❤️</h3>
 
 </footer>
 
